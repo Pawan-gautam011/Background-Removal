@@ -1,17 +1,20 @@
-import React from 'react'
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Navbar from './Navbar.jsx';
+import About from './About.jsx';
 
-const App = () => {
+function App() {
   return (
-    <>
-
-    <div className='grid place-content-center h-screen'>
-      <h1 className='text-3xl text-bold'>Welcome to the background Removal</h1>
+    <div>
+ 
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Navbar />} />
+        <Route path='/about' element={<About />} />
+     
+      </Routes>
+      </BrowserRouter>
     </div>
-    
-    
-    </>
-
-  )
+  );
 }
 
-export default App
+export default App;
