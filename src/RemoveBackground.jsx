@@ -37,55 +37,69 @@ const RemoveBackground = () => {
   };
 
   return (
-    <>
-      <div className="grid place-content-center h-screen">
-        <div className="flex items-center flex-col sm:flex-row">
-          <video autoPlay loop muted className="w-[100%] sm:w-[50%] lg:w-[50%]">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-800 text-white px-4">
+      <div className="flex flex-col sm:flex-row w-full max-w-4xl rounded-lg shadow-lg bg-gray-700 overflow-hidden">
+
+     
+        <div className="w-full sm:w-1/2">
+          <video autoPlay loop muted className="w-full h-full object-cover">
             <source src={mp4} type="video/mp4" />
           </video>
-          <div className="h-full w-auto mx-auto mt-10 border sm:ml-24 sm:w-96">
-            <div className='input border border-gray-700 px-2 py-2 rounded-lg bg-gray-950 mb-5'>
-              <input
-                type="file"
-                onChange={(e) => setImage(e.target.files[0])}
-                className='text-sm text-gray-500 file:mr-5 file:py-1 file:px-3 file:text-xs file:font-medium file:border-0 file:rounded-md
-                file:bg-gray-800 file:text-gray-500 hover:file:cursor-pointer hover:file:bg-blue-500
-                hover:file:text-blue-700 lg:w-[40em]'
-              />
-            </div>
-            <div className="flex justify-center mt-10">
-              <button onClick={handleRemoveBackground}
-                className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">
-                Remove Background
-              </button>
-            </div>
+        </div>
 
-            {image &&
-              <div className="flex justify-center mt-5">
-                <img src={URL.createObjectURL(image)} alt="Uploaded" className="w-[50%]" />
-              </div>
-            }
-
-            {bgRemove &&
-              <div className='border-2 border-gray-500 rounded-r-lg border-dashed flex justify-center p-2 w-40 lg:w-80 mt-5'>
-                <img src={bgRemove} alt="Background removed" className="w-full" />
-              </div>
-            }
-
-            {bgRemove &&
-              <div className="mt-4">
-                <a href={bgRemove} download={'save.png'}>
-                  <button className='bg-gray-800 text-white w-full py-2 px-3 rounded-lg border border-gray-600'>
-                    Download
-                  </button>
-                </a>
-              </div>
-            }
-
+    
+        <div className="flex flex-col justify-center w-full sm:w-1/2 p-6">
+          <div className="mb-4">
+            <input
+              type="file"
+              onChange={(e) => setImage(e.target.files[0])}
+              className="w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:text-sm cursor-pointer file:font-semibold file:border-0 file:rounded-md file:bg-blue-500 file:text-white hover:file:bg-blue-600"
+            />
           </div>
+
+          {
+            image &&
+
+            <button
+            onClick={handleRemoveBackground}
+            className="px-4 py-2 mb-4 bg-blue-500 text-white text-lg font-semibold rounded-md hover:bg-blue-600 transition-all duration-200"
+          >
+            Remove Background
+          </button>
+          }
+
+         
+
+     
+          <div className="flex flex-col sm:flex-row justify-center items-center space-x-4">
+            {image && (
+              <div className="mb-4">
+                <img src={URL.createObjectURL(image)} alt="Uploaded" className="w-full max-w-sm rounded-lg shadow-md" />
+              </div>
+            )}
+
+            {bgRemove && (
+              <div className="mb-4">
+                <div className='border-2 border-gray-600 rounded-lg border-dashed p-4 w-full max-w-sm'>
+                  <img src={bgRemove} alt="Background removed" className="w-full rounded-md" />
+                </div>
+              </div>
+            )}
+          </div>
+
+          {bgRemove && (
+            <div className="mt-6">
+              <a href={bgRemove} download={'save.png'}>
+                <button className='w-full bg-gray-700 text-white py-2 px-4 rounded-md border border-gray-600 hover:bg-gray-600 transition-all duration-200'>
+                  Download
+                </button>
+              </a>
+            </div>
+          )}
         </div>
       </div>
-    </>
+    </div>
+
   );
 };
 
