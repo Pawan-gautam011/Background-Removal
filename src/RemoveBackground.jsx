@@ -53,7 +53,7 @@ const RemoveBackground = () => {
             <input
               type="file"
               onChange={(e) => setImage(e.target.files[0])}
-              className="w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:text-sm cursor-pointer file:font-semibold file:border-0 file:rounded-md file:bg-blue-500 file:text-white hover:file:bg-blue-600"
+              className="w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:text-sm cursor-pointer file:font-semibold file:border-0 file:rounded-md file:bg-yellow-500 file:text-white file:cursor-pointer hover:file:bg-yellow-600"
             />
           </div>
 
@@ -62,7 +62,7 @@ const RemoveBackground = () => {
 
             <button
             onClick={handleRemoveBackground}
-            className="px-4 py-2 mb-4 bg-blue-500 text-white text-lg font-semibold rounded-md hover:bg-blue-600 transition-all duration-200"
+            className="px-4 py-2 mb-4 bg-yellow-500 text-white text-lg font-semibold rounded-md hover:bg-yellow-600 transition-all duration-200"
           >
             Remove Background
           </button>
